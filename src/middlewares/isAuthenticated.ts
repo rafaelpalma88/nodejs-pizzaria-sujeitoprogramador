@@ -25,8 +25,6 @@ export function isAuthenticated(
         process.env.JWT_SECRET
       ) as Payload
 
-      console.log(sub)
-
       req.user_id = sub
 
       return next()

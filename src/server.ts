@@ -10,12 +10,9 @@ app.use(cors())
 
 app.use(router)
 
-console.log('__dirname', __dirname)
-
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.log(err)
   if(err instanceof Error) {
     return res.status(400).json({
       error: err.message
