@@ -5,7 +5,11 @@ class ListOrderService {
 
     const item = await prismaClient.order.findMany({
       where: {
-        draft: false
+        draft: false,
+        status: false
+      },
+      orderBy: {
+        created_at: 'desc'
       }
     })
 
